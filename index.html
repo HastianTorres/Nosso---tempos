@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nosso Tempo ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff9a9e,
+                    #fad0c4
+                );
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(15px);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .coracao {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .texto {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .dias {
+            font-size: 55px;
+            font-weight: bold;
+        }
+
+        .label {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .tempo {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .bloco {
+            min-width: 75px;
+
+            padding: 15px 8px;
+
+            background: rgba(255, 255, 255, 0.4);
+
+            border-radius: 15px;
+        }
+
+        .numero {
+            display: block;
+
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .unidade {
+            font-size: 12px;
+        }
+
+        .desde {
+            margin-top: 30px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Sebhas & Rafa❤️</h1>
+
+        <div class="coracao">
+            ❤️
+        </div>
+
+        <p class="texto">
+            Estamos juntos há
+        </p>
+
+        <div class="dias" id="dias">
+            0
+        </div>
+
+        <div class="label">
+            dias
+        </div>
+
+        <section class="tempo">
+
+            <div class="bloco">
+                <span class="numero" id="horas">00</span>
+                <span class="unidade">horas</span>
+            </div>
+
+            <div class="bloco">
+                <span class="numero" id="minutos">00</span>
+                <span class="unidade">minutos</span>
+            </div>
+
+            <div class="bloco">
+                <span class="numero" id="segundos">00</span>
+                <span class="unidade">segundos</span>
+            </div>
+
+        </section>
+
+        <p class="desde">
+            Desde 16 de maio de 2026 ❤️
+        </p>
+
+    </main>
+
+
+    <script>
+
+        // DATA EM QUE O RELACIONAMENTO COMEÇOU
+        const inicio = new Date("2026-05-17T00:00:00");
+
+
+        function atualizarContador() {
+
+            const agora = new Date();
+
+            const diferenca = agora - inicio;
+
+
+            // converte milissegundos
+
+            const segundosTotais =
+                Math.floor(diferenca / 1000);
+
+
+            const dias =
+                Math.floor(
+                    segundosTotais / 86400
+                );
+
+
+            const horas =
+                Math.floor(
+                    (segundosTotais % 86400) / 3600
+                );
+
+
+            const minutos =
+                Math.floor(
+                    (segundosTotais % 3600) / 60
+                );
+
+
+            const segundos =
+                segundosTotais % 60;
+
+
+            document.getElementById("dias").textContent =
+                dias;
+
+
+            document.getElementById("horas").textContent =
+                String(horas).padStart(2, "0");
+
+
+            document.getElementById("minutos").textContent =
+                String(minutos).padStart(2, "0");
+
+
+            document.getElementById("segundos").textContent =
+                String(segundos).padStart(2, "0");
+
+        }
+
+
+        atualizarContador();
+
+        setInterval(
+            atualizarContador,
+            1000
+        );
+
+    </script>
+
+</body>
+
+</html>
